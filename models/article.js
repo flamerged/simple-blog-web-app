@@ -18,9 +18,30 @@ module.exports = sequelize => {
     }
     Article.init(
         {
-            title: Sequelize.STRING,
-            author: Sequelize.STRING,
-            body: Sequelize.TEXT
+            title: {
+                type: Sequelize.STRING,
+                validate: {
+                    notEmpty: {
+                        msg: 'Title is required'
+                    }
+                }
+            },
+            author: {
+                type: Sequelize.STRING,
+                validate: {
+                    notEmpty: {
+                        msg: 'Author is required'
+                    }
+                }
+            },
+            body: {
+                type: Sequelize.TEXT,
+                validate: {
+                    notEmpty: {
+                        msg: 'Article text is required'
+                    }
+                }
+            }
         },
         { sequelize }
     );

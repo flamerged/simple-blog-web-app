@@ -1,6 +1,9 @@
 div
   label(for="title") Title:
-  input(type="text", name="title" value=article.title)
+  if(article.title != '')
+    input(type="text", name="title" value=article.title)
+  else
+    input(type="text", name="title" value=" ")
 div
   label(for="author") Author:
   input(type="text", name="author" value=article.author)
